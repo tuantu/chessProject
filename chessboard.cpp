@@ -96,7 +96,7 @@ void ChessBoard::clearGame()
 
 QString ChessBoard::loadGame(QString filepath)
 {
-    filepath = filepath.replace("file:///", "");
+    filepath = filepath.replace("file://", "");
     QFile openFile (filepath);
 
     if (!openFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -150,7 +150,7 @@ QString ChessBoard::loadGame(QString filepath)
 
 QString ChessBoard::saveGame(QString filepath)
 {
-    filepath = filepath.replace("file:///", "");
+    filepath = filepath.replace("file://", "");
     QFile saveFile (filepath);
     if (!saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
         return FILE_SAVE_CANNOT_OPEN;
